@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Recipes</title>
+<title>Recipes $ {recipe.id}</title>
 </head>
 <body>
-<ul>
-<c:forEach var="item" items='${items}'>
-	<li><c:out value="${item}"></c:out></li>
-</c:forEach>
-</ul>
-<img src="/static/cookbook.png" />
+ <h1>${recipe.titulo}</h1>
+<b>Problema</b>
+<p>${recipe.problema}</p>
+<b>Solucao:</b>
+<p>${recipe.solucao}</p>
+
 </body>
 </html>
