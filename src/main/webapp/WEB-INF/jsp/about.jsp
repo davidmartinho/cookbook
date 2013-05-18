@@ -7,14 +7,10 @@
 <title>Homepage</title>
 </head>
 <body>
-	
-	<div align="right"> ${currentTime} </div>
-	<center> <h1> The Cookbook </h1> </center>
-	
-	
-	<a href="/recipes">Listar Receitas</a> <br>
-	<a href="/recipes/create">Criar nova Receita</a> <br>
-	<a href="/about">About</a> <br>
 
+			<center> <h1> Este trabalho foi realizado por: </h1> </center>
+	<div align="center"> <h3><a href="https://www.facebook.com/marcelo.martins.714">${nome1}</a> - <a href="https://www.facebook.com/joao.paulo.19901114">${nome2}  -</a>  <a href="https://www.facebook.com/marco.teixeira.1029">${nome3}</a>   </h2> </div> <br>
+	
+	 
 </body>
 </html>

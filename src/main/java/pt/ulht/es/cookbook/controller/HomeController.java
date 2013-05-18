@@ -17,12 +17,20 @@ public class HomeController {
         Date date = new Date(System.currentTimeMillis());
         DateFormat df = DateFormat.getDateInstance();
         model.addAttribute("currentTime", df.format(date));
-        model.addAttribute("nome1", "Marcelo Martins");
-        model.addAttribute("nome2", "João Mendes");
-        model.addAttribute("nome3", "Marco Teixeira");
+        
 
         
 		return "home";
+	}
+
+
+	@RequestMapping(method=RequestMethod.GET, value="about")
+	public String showAbout(Model model) {
+		model.addAttribute("nome1", "Marcelo Martins");
+        model.addAttribute("nome2", "João Mendes");
+        model.addAttribute("nome3", "Marco Teixeira");
+		
+		return "about";
 	}
 
 }
