@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
   
-	@RequestMapping(method=RequestMethod.GET, value="the_force_is_strong_in_this_one")
+	@RequestMapping(method=RequestMethod.GET, value="home")
 	public String showHome(Model model) {
 
         Date date = new Date(System.currentTimeMillis());
