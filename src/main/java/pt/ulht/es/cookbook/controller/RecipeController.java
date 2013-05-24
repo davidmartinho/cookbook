@@ -1,7 +1,9 @@
 package pt.ulht.es.cookbook.controller;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,13 +16,16 @@ import pt.ist.fenixframework.pstm.AbstractDomainObject;
 import pt.ulht.es.cookbook.domain.CookbookManager;
 import pt.ulht.es.cookbook.domain.Recipe;
 
+
+
 @Controller
 public class RecipeController {
 
 	@RequestMapping(method = RequestMethod.GET, value="/recipes")
     public String listRecipes(Model model) {
-    Set<Recipe> recipes = CookbookManager.getInstance().getRecipeSet();
-    model.addAttribute("recipes", recipes);
+	List<Recipe> recipeSortedList = new ArrayList<Recipe>(CookbookManager.getInstance().getRecipeSet());
+	Collections.sort(recipeSortedList, new Recipe.RecipeComparator());
+    model.addAttribute("recipes", recipeSortedList);
     return "listRecipes";
     }
 
@@ -29,6 +34,7 @@ public class RecipeController {
 		return "createRecipe";
 	}
 
+	
 	@RequestMapping(method = RequestMethod.POST, value = "/recipes")
 	public String createRecipe(@RequestParam Map<String, String> params) {
 		String title = params.get("title");
@@ -39,6 +45,15 @@ public class RecipeController {
 		Recipe recipe = new Recipe(title, problem, solution, author);
 		return "redirect:/recipes/" + recipe.getExternalId();
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/recipes/{id}/delete")
+	public String deleteRecipe(@PathVariable("id") String id) {
+		Recipe recipe = AbstractDomainObject.fromExternalId(id);
+		recipe.delete();
+		CookbookManager.getInstance().removeRecipe(recipe);
+		return "redirect:/recipes/";
+	}
+	
 
 	@RequestMapping(method = RequestMethod.GET, value = "/recipes/{id}")
 	public String showRecipe(Model model, @PathVariable String id) {

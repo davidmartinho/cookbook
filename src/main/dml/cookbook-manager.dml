@@ -9,7 +9,7 @@ class Recipe {
 	String author;
 	
 	DateTime creationTimestamp;
-	DateTime completionTimestamp;
+	
 }
 
 relation CookbookManagerHasrRecipes {

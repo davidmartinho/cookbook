@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<div align="right"> ${currentTime} </div>
+	<div align="right"> ${currentHour}:${currentMinute} <br> ${currentTime} </div>
 	<center> <h1> The Cookbook </h1> </center>
 	
 	
