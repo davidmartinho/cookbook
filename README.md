@@ -2,7 +2,7 @@
 - 123456 David Martinho
 - 123456 David Martinho
 - 123456 David Martinho
-- 123456 David Martinho
+
 
 ## Changelog
 #### Versão 1.0:
